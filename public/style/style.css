@@ -1,0 +1,230 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Partie Header */
+
+.les-categories a{
+    color: black;
+}
+
+.logoSite{
+    margin-left: 20%;
+    align-self: center;
+
+}
+
+.logoSite img {
+    width: 120px;
+}
+
+/* barre de recherche */
+
+.mr-sm-2 {
+    background: url("../Images/iconlogo/search.png") no-repeat;
+    background-position: 95% 50%; 
+    width: 95%;
+}
+
+.connexion_recherche { 
+    justify-content: flex-end;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.connexion_recherche a {
+    color: #4a4d4f;
+    border: 3px solid #d0d9e175;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+.login_icon{
+    background: url("../Images/iconlogo/login_icon.png") no-repeat;
+
+}
+
+.login_signin a{
+    padding-left: 30px;
+    padding-bottom: 2px;
+    padding-top: 3px;
+}
+
+.navbar-light{
+    padding-right: 0;
+}
+
+.text-right {
+    /* margin-right: 0; */
+    padding-right: 0;
+    padding-bottom: 10px;
+}
+
+/* HOMEPAGE  ( index.html.twig ) */
+
+/* Partie Main */
+
+/* Global */
+h5 {
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+}
+hr {
+    border: 2px solid white;
+    width: 30%;
+}
+
+.background-main {
+    /* border: 2px solid red; */
+    background-color: rgba(60, 25, 25, 0.831);
+    margin:0;
+    /* background-image: url("../images/home_background4.jpg"); */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.background-main img {
+    width: 100%;
+}
+
+.little-main {
+    /* border: 5px solid rgb(79, 23, 6); */
+    padding: 0;
+    /* transform: translateY(-350px); */
+    /* margin-top: auto;
+    margin-bottom: auto; */
+}
+
+.top-actu-barre{
+    /* border: 2px solid red; */
+    height: 7vh;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    background-color: rgb(60, 25, 25);
+}
+
+.whole-row{
+    margin-bottom: -300px; 
+    /* différentes margin en responsive  */
+}
+/* Galerie de liens vers d'autres articles */
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    margin: 25px auto;
+    font-size: 18px;
+    color: #999;
+}
+
+/* nécéssaire */
+.tz-gallery {
+    padding: 12px;
+}
+
+.tz-gallery .row > div {
+    padding: 2px;
+}
+
+/* .tz-gallery .lightbox img {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+} */
+
+.tz-gallery .lightbox:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -13px;
+    margin-left: -13px;
+    opacity: 0;
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Glyphicons Halflings';
+    pointer-events: none;
+    z-index: 9000;
+    transition: 0.4s;
+}
+
+
+.tz-gallery .lightbox:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(24, 31, 57, 0.7);
+    content: '';
+    transition: 0.4s;
+}
+
+.tz-gallery .lightbox:hover:after,
+.tz-gallery .lightbox:hover:before {
+    opacity: 1;
+}
+
+.avant-der-pic {
+    /* border: 2px solid red; */
+}
+
+.derniere-pic {
+    /* border: 2px solid yellow; */
+}
+
+/* Footer */
+.text-muted{
+    padding: 15px;
+}
+.float-right a{
+    color: rgb(87, 24, 24);
+}
+
+@media(min-width: 225px){
+
+    .whole-row {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .avant-der-pic {
+        height: 50%;
+    }
+    .derniere-pic {
+        bottom: 25% !important;
+        transform: translateY(-100%);
+    }
+}
+
+ @media(min-width: 531px) and (max-width : 722px) {
+    .derniere-pic {
+        bottom: 25% !important;
+        transform: translateY(0%);
+    }
+} 
+
+
+@media (min-width: 360px) and (max-width: 530px){
+    .little-main {
+        transform: translateY(-90px);
+
+    }
+}
+
+@media (min-width: 700px){
+    .little-main {
+        transform: translateY(-350px);
+    }
+}
+
+/* Style de la partie Register/INSCRIPTION
+( register_content.html.twig ou - si supprimé - direct : register.html.twig)
+*/

@@ -1,0 +1,32 @@
+
+
+.para{
+    margin-top: 0px;
+    margin-bottom: 0rem;
+    padding: 35px;
+    background:  rgba(255, 255, 255, 0.747);
+    /* border-bottom-width: 2px; */
+    color: black;
+
+    text-align: justify;
+
+}
+
+h2 {
+    text-align: center;
+    background:  rgba(255, 255, 255, 0.747);
+    margin-bottom: 0px;
+    color: black;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    }
+
+footer {
+    background-color: white;
+    width: 100%;
+}
+h3{
+    padding-top: 10px ;
+}
