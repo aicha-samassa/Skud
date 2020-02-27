@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage Test2</title>
+    <!-- CDN Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CSS PERSO -->
+    <link href="{{ asset('style/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('style/responsive.css')}}" rel="stylesheet">
+{% block stylesheets %}
+{% endblock %} 
+    <!-- FAVICON --> 
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/4a97d06b79.js"></script>
+</head>
+
+<body>
+
+{% block header %}
+
+<div class="pos-f-t whole-header">
+	<nav class="navbar navbar-light bg-light">
+  
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+		</button>
+  <div class="logoSite">
+  <a href="{{ path('home')}}"><img src="{{asset('Images/iconlogo/Skud-Projekt.png')}}"></a>
+  </div>
+
+  <div class="row connexion_recherche">
+  <div class="col-md-6 text-right"> <!-- div du bouton connexion -->
+
+		{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+    <a href="{{ path('fos_user_profile_show')}}"> {{ app.user.username }}</a>
+                           
+    || <a href="{{ path('fos_user_security_logout')}}"> deconnexion</a>
+
+    {% else %}
+    <div class="login_signin">
+    <a class="login_icon" href="{{ path('fos_user_security_login')}}">connexion</a>
+    </div>
+
+    {% endif %}
+
+  </div> <!-- fin div du bouton connexion -->                    
+    <div class="search search-header">
+      <form class="form-inline p-md-2">
+			<input class="form-control mr-sm-2" type="search" placeholder="rechercher" aria-label="Search">
+			</form>
+    </div>
+
+  </div> <!-- fin div connexion_recherche -->
+
+  </nav>
+
+  <div class="collapse" id="navbarNavDropdown">
+		<div class="bg-light p-4"> 
+			<div class="container-fluid row les-categories">
+				<div class="h3 col-md-3">
+					<p class="text-center"><a href="{{ path('rapfr')}}">Musique Rap fr</a></p>
+				</div>
+				<div class="h3 col-md-3">
+										<p class="text-center"><a href="{{ path('rap-us')}}">Musique Rap Us</a></p>
+				</div>
+				<div class="h3 col-md-3">
+										<p class="text-center"><a href="{{ path('lifestyle-sports')}}">Lifestyle Sport</a></p>
+				</div>
+				<div class="h3 col-md-3">
+					<p class="text-center"><a href="{{ path('interview')}}">Interviews</a></p>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+</div> <!-- fin "whole header" (contient les categories en + de la nav) -->
+
+{% endblock %}
+
+{# Partie du Main qui se retrouvera sur toutes les pages #}
+
+<div class="img-fluid background-main row">
+  <img src="{{asset('Images/bckg/test_img_bck_login2.jpg')}}">
+<div class="col-lg-10 mx-auto little-main">
+
+{% block main %}	
+
+
+
+{% endblock %}
+    </div> <!-- fin little-main -->
+  </div> <!-- fin background-main -->
+
+
+{% block footer %}
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Remonter vers le haut</a>
+        </p>
+        <p>Site Intégré et Developpé par Franck, Emma, Ismail et Aicha</p>
+      </div>
+    </footer>
+{% endblock %}
+
+
+{% block javascripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+{% endblock %}
+
+
+</body>
+</html>

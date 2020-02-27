@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col m6 offset-m3">
+            <h1> Recherche avancée </h1>
+            {{ form(search_form)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

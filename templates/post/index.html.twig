@@ -1,0 +1,78 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Post index{% endblock %}
+
+{% block main %}
+    <h1>Post index</h1>
+
+    <table class="table" style="background: blueviolet;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Published</th>
+                <th>Thumbnail</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in maxarticle %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ post.updatedAt ? post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ post.published ? 'Yes' : 'No' }}</td>
+                <td>{{ post.thumbnail }}</td>
+                <td>
+                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('post_new') }}">Create new</a>
+{% endblock %}
+
+
+
+{#
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block main %}
+{{ dump(posts)}}
+{% if posts is not empty %}
+{% for post in posts %}
+    <div class="main-articles">
+        <h1 class="titre">{{post.title}}</h1>
+			<div class="info_post">
+			<!-- date du post de l'article -->
+				<div class="date">Le {{ post.createdAt ? post.createdAt|date('d/m/y' )}} - Publié par (auteur).</div>
+			</div>
+			<div class="visual_post">
+                <img src="assets/img/dinos.jpg" class="w-100"></img> {{ post.thumbnail }}
+            </div>
+            <div class="content-post">
+                <p>{{ post.content }}</p>
+            </div>
+                
+    </div>
+{% endfor %}
+
+{% else %}
+Pas de posts por le moment
+{% endif %}
+
+{% endblock %} #}

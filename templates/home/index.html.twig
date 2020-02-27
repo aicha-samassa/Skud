@@ -1,0 +1,156 @@
+{% extends 'base.html.twig' %}
+
+
+{% block main %}
+
+      <div class="top-actu-barre">Top Actu</div>
+
+      <!-- caroussel / articles du jour -->
+      <div class="bd-example articles-jour">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{asset('Images/stars/bramsito_homepage_test.png')}}" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-md-block">
+            <h5>Actu du Jour 1</h5>
+            <hr>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+          </div>
+        <div class="carousel-item">
+          <img src="{{asset('Images/stars/meryl_homepage_test.png')}}" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-md-block">
+                    <h5>Actu du Jour 2</h5>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="{{asset('Images/stars/sneazy_homepage_test.jpg')}}" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-md-block">
+                    <h5>Actu du Jour 3</h5>
+                    <hr>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span> <!-- "Previous" effacé -->
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span> <!-- "Next" effacé -->
+              </a>
+            </div>
+          </div>
+
+          <br>
+
+        <!-- Galerie / liens vers les articles -->
+
+     
+
+        <div class="tz-gallery">
+          <div class="row whole-row">
+
+
+          
+        {% for post in maxarticle %}
+        
+          {% if post.id == 6 %}
+
+
+          <div class="col-sm-12 col-md-4">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+          
+          
+          {% endif %}
+
+          {% if post.id == 5 %}
+
+          <div class="col-sm-6 col-md-4">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+
+          
+          
+          {% endif %}
+
+
+          {% if post.id == 4 %}
+
+
+          <div class="col-sm-6 col-md-4">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+
+          
+          {% endif %}
+
+          {% if post.id == 3 %}
+
+          <div class="col-sm-12 col-md-8">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+          
+          
+          {% endif %}
+
+          {% if post.id == 2 %}
+
+          <div class="col-sm-6 col-md-4 avant-der-pic">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+          
+
+          
+          {% endif %}
+
+          {% if post.id == 1 %}
+
+          <div class="col-sm-6 col-md-4 derniere-pic">
+              <a class="lightbox" href="{{ path('post_show', {'id': post.id}) }}">
+                 <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}">
+                </a>
+                  <div class="carousel-caption"><h3>{{post.title}}</h3></div>
+            </div>
+          
+          
+          {% endif %}
+          
+        
+              
+           
+
+            
+        {% endfor %}
+
+          </div>
+        </div>
+
+{% endblock %}
+

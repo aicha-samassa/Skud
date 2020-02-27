@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('style/articles.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}{{post.title}}{% endblock %}
+
+
+{% block main %}
+
+
+{# <div class="container"> #}
+    <div class="row">
+        <div class="container-fluid">
+            <h2>{{post.title}}</h2>
+        <div class="img-fluid">
+            <img src="{{asset("uploads/files/")}}{{ post.thumbnail}}" class="w-100">
+        </div>
+        </div>
+        <div class="col-12 mx-auto">
+            <p class="para">{{ post.content }}</p>
+
+    <div class="container-fluid" style="background: rgba(248,248,255,0.92); border-radius: 2px; padding-bottom: 20px">
+        <h3 class="text-center">Commentaires :</h3>
+        <hr style="border: none; border: 1px solid black">
+    {% for commentaire in commentaires %}
+        <br>
+        <div style="background: rgba(119,136,153,0.11); height: 2rem">
+
+       <p>Posté par <b>{{ commentaire.user }}</b> le <em> {{ commentaire.createdAt|date('d/m/Y') }}</em> : </p>
+        </div>
+        <div class="container-fluid" style="background: darkslategrey; color: white">
+        {{ commentaire.contenu }}
+        <br></div>
+    {% endfor %}
+
+        {% if is_granted('ROLE_USER')%}
+    {{ form_start(form) }}
+            <label for=""> Ecrivez votre commentaire :</label>
+            <br>
+    {{ form_widget(form.contenu) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+        {% endif %}
+    </div>
+
+
+    </div>{% endblock %}
+{# </div> #}
